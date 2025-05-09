@@ -77,6 +77,9 @@ class _MoodPageState extends State<MoodPage> {
                           icon: const Icon(Icons.delete),
                           onPressed: () => bloc.add(DeleteMood(mood.id)),
                         ),
+                        subtitle: Text(
+                          mood.created_at.toDate().toIso8601String(),
+                        ),
                       );
                     },
                   );

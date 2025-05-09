@@ -44,6 +44,9 @@ class NotesPage extends StatelessWidget {
                       final note = state.notes[i];
                       return ListTile(
                         title: Text(note.title),
+                        subtitle: Text(
+                          note.created_at.toDate().toIso8601String(),
+                        ),
                         trailing: IconButton(
                           icon: Icon(Icons.delete),
                           onPressed: () => bloc.add(DeleteNote(note.id)),
