@@ -6,7 +6,6 @@ import 'repositories/mood_repository.dart';
 import 'bloc/note_bloc.dart';
 import 'bloc/note_event.dart';
 import 'repositories/note_repository.dart';
-// import 'models/note.dart';
 import 'firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import "pages/mood_page.dart";

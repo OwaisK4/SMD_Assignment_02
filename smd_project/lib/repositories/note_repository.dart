@@ -12,7 +12,10 @@ class NoteRepository {
   }
 
   Future<void> addNote(String title) {
-    return _notesRef.add({'title': title});
+    return _notesRef.add({
+      'title': title,
+      'created_at': FieldValue.serverTimestamp(),
+    });
   }
 
   Future<void> updateNote(Note note) {

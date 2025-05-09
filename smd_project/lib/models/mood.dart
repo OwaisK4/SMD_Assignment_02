@@ -10,6 +10,15 @@ class Mood {
 
   Map<String, dynamic> toMap() => {'value': value, 'created_at': created_at};
 
-  factory Mood.fromDoc(DocumentSnapshot doc) =>
-      Mood(id: doc.id, value: doc['value'], created_at: doc['created_at']);
+  factory Mood.fromDoc(DocumentSnapshot doc) {
+    final data = doc.data() as Map<String, dynamic>;
+    return Mood(
+      id: doc.id,
+      value: data['value'] ?? '',
+      created_at:
+          data.containsKey('created_at') && data['created_at'] is Timestamp
+              ? data['created_at']
+              : Timestamp.now(),
+    );
+  }
 }
